@@ -1,0 +1,11 @@
+open weather api = 73b201a4c38c8814c4edc49ae56d88c5
+
+giphy api =
+      const YOUR_KEY_HERE = "sLmDbwkzb3w5vedYdQARUxfLFmNQdtOG";
+  const response = await fetch(
+          `https://api.giphy.com/v1/gifs/translate?api_key=${YOUR_KEY_HERE}&s=${value}`,
+          { mode: "cors" }
+
+
+        );
+  `api.openweathermap.org/data/2.5/forecast/daily?q=london&cnt=15&appid=${YOUR_KEY_HERE}`
