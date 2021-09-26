@@ -79,8 +79,17 @@ div+div {
 .toggleUnits{
     display: flex;
 }
+input{
+    padding: .3rem 1rem
+}
 input[type=text]{
     margin-bottom: 0.5em;;
+    outline: none;
+    background: var(--bg);
+}
+input[type = submit]{
+    background: white;
+    border-radius: 3px;
 }
 @media (max-width: 370px) {
     nav form {
