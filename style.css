@@ -1,0 +1,94 @@
+:root {
+    --bg: hsl(300, 100%, 85%, 0.5);
+    --bg-secondary: hsl(300, 10%, 20%);
+    --color: white;
+    font-family: 'Courier New', Courier, monospace
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background: var(--bg);
+    color: #333;
+    padding-top:6rem
+
+}
+
+h1,
+h3 {
+    margin: 4px;
+}
+
+nav {
+    position: fixed;
+    width: 100%;
+    top:0;
+    background: var(--bg-secondary);
+    border-radius: 5px;
+    box-shadow: 1px 0px  0px 2px hsl(0, 1%, 55%, 0.2);
+    color: whitesmoke
+}
+.weatherLogo{
+    font-size: 1.5rem;
+    display: flex;
+    align-items:center;
+    gap: 1em;
+    padding:0em 1em;
+}
+.weatherLogo i{
+    color: rgb(255, 230, 0);
+    font-size:2rem;
+
+}
+#icon{
+    margin-top: 5rem;
+    display:flex;
+    align-items: center;
+    justify-content:center
+}
+
+nav form {
+    width: 100%;
+    max-width: 500px;
+    margin: 2rem auto;
+    display: flex;
+    justify-content: space-between
+}
+
+
+
+.infoContainer {
+    border-radius: 4px;
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+    display: grid;
+    width: clamp(100px, 70vw, 300px);
+    color: var(--color);
+    margin: 1rem auto 0;
+    box-shadow: 2px 0 2px 0 #333;
+    text-align: center;
+}
+
+img {
+    width: 12rem;
+}
+
+div+div {
+    margin-bottom: 0.5rem;
+}
+.toggleUnits{
+    display: flex;
+}
+input[type=text]{
+    margin-bottom: 0.5em;;
+}
+@media (max-width: 370px) {
+    nav form {
+        flex-direction: column;
+        align-items: center
+    }
+
+    #item {
+        margin-top: 3rem;
+    }
+}

@@ -1,5 +1,6 @@
 //fetch and console  dot log the calue from the api
 (() => {
+  const obj= {Location:"London", unit: true}
   const getDoc = (item) => document.querySelector(item);
   const changeAttr =(attr, item ,setter)=>{
     item.removeAttribute(attr)
@@ -8,19 +9,27 @@
   const form = getDoc("form");
   const input = getDoc("input");
   const idName = getDoc(".name");
+  const weatherInfo = getDoc(".weather")
   const current = getDoc(".feelsLike");
   const min = getDoc(".minimumTemp");
   const max = getDoc(".maximumTemp");
   const pressure = getDoc(".pressure");
+  const toggle = getDoc(".toggleUnits")
 
+  toggle.addEventListener("change",(e)=>{
+    obj.unit=e.target.id==="metric"? true: false;
+    newRequest(obj.Location, obj.unit)
+  } )
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    newRequest(input.value)
+    obj.Location = input.value
+    newRequest(obj.Location, obj.unit)
+    input.value=""
   });
 
-  let city = "London";
-  let cnt = "15";
-  const unit = true;
+  // let city = "London";
+  // let cnt = "15";
+  // const unit = true;
   const weatherIcon = document.querySelector(".wicon");
 
   const newRequest = (city = "London", unit = true) => {
@@ -35,15 +44,23 @@
         const { weather, main, name } = data;
         const iconcode = weather[0].icon;
         var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
-        weatherIcon.setAttribute("src", iconurl);
-        changeAttr("src", weatherIcon, iconcode)
+        changeAttr("src", weatherIcon, iconurl)
 
         return data;
       })
       .then((data) => {
         const { weather, main, name } = data;
       idName.textContent= `Location ${name}`
-      current.textContent = `current Temp ${main.temp}`;
+      weatherInfo.textContent= `${weather[0].main}: ${weather[0].description}`
+      current.textContent = `current Temp ${main.temp} ${unit?"Kelvin":"Celcius"}`;
+      console.log(weather)
+      min.textContent = `The Coldest ❄️ ${main.temp_min} ${
+        unit ? "Kelvin" : "Celcius"
+      }`;
+      max.textContent = `The Hottest temp 🔥️  ${main.temp_max} ${
+        unit ? "Kelvin" : "Celcius"
+      }`;
+      pressure.textContent= `Pressure: ${main.pressure} Pascals`
       })
       .catch((err) => console.log(err));
   };

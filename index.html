@@ -6,21 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
     <script src="main.js" defer></script>
+    <script src="https://kit.fontawesome.com/4c536a6bd5.js" crossorigin="anonymous"></script>
     <title>Weather App</title>
   </head>
   <body>
-      <form >
-          <input type="text">
-          <input type="submit" class="search" value="🔍️"></input>
-      </form>
-    <section class="infoContainer">
-        <div class="name"></div>
+      <nav>
+        <div class="weatherLogo"><i class="fas fa-cloud-sun" aria-hidden="true"></i>
+        <h1>Weather App</h1></div>
+        <form >
+            <div class="">
+              <input type="text">
+              <input type="submit" class="search" value="🔍️"></input>
+            </div>
+            <div class="toggleUnits" id="toggle">
+              <div class=""><input type="radio" name="toggle" id="metric"><label for="metric">Metric</label></div>
+              <div class=""><input type="radio" name="toggle" id="Imperial"></div><label for="Imperial">Imperial</label>
+            </div>
+        </form>
+      </nav>
+      <div id="icon"><img class="wicon" src="" alt="Weather icon" /></div>
+      <section class="infoContainer">
+
+        <h1 class="name"></h1>
+        <h3 class="weather"></h3>
         <div class="temp"></div>
         <div class="feelsLike"></div>
         <div class="minimumTemp"></div>
         <div class="maximumTemp"></div>
         <div class="pressure"></div>
-        <div id="icon"><img class="wicon" src="" alt="Weather icon" /></div>
     </section>
   </body>
 </html>
